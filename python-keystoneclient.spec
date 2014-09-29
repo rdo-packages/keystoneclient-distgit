@@ -3,7 +3,7 @@ Name:       python-keystoneclient
 # and restarted version numbering from 0.1.1
 # https://lists.launchpad.net/openstack/msg14248.html
 Epoch:      1
-Version:    0.10.1
+Version:    0.11.1
 Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
@@ -25,7 +25,7 @@ Requires: python-babel
 Requires: python-iso8601 >= 0.1.4
 Requires: python-lxml
 Requires: python-netaddr
-Requires: python-oslo-config >= 1.1.0
+Requires: python-oslo-config >= 2:1.4.0
 Requires: python-prettytable
 Requires: python-requests >= 0.8.8
 Requires: python-six >= 1.5.2
@@ -46,6 +46,7 @@ Summary:    Documentation for OpenStack Identity API Client
 Group:      Documentation
 
 BuildRequires: python-sphinx
+BuildRequires: python-oslo-sphinx
 
 %description doc
 Documentation for the client library for interacting with Openstack
@@ -64,6 +65,9 @@ rm -f test-requirements.txt requirements.txt
 
 # Remove bundled egg-info
 rm -rf python_keystoneclient.egg-info
+
+# make doc build compatible with python-oslo-sphinx RPM
+sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 %build
 %{__python} setup.py build
@@ -96,6 +100,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc LICENSE html
 
 %changelog
+* Tue Sep 30 2014 Alan Pevec <alan.pevec@redhat.com> 1:0.11.1-1
+- Update to upstream 0.11.1
+
 * Thu Aug 14 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:0.10.1-1
 - Update to upstream 0.10.1
 - New Requires: python-stevedore, python-lxml
