@@ -33,6 +33,8 @@ Requires: python-stevedore
 # other requirements
 Requires: python-setuptools
 Requires: python-keyring
+# for s3_token middleware
+Requires: python-webob
 
 
 %description
