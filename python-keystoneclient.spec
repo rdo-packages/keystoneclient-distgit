@@ -15,7 +15,6 @@ BuildArch:  noarch
 BuildRequires: python2-devel
 BuildRequires: python-setuptools
 BuildRequires: python-pbr
-BuildRequires: python-d2to1
 
 # from requirements.txt
 Requires: python-argparse
