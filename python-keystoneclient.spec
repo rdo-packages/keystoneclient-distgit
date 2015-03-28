@@ -22,13 +22,14 @@ Requires: python-argparse
 Requires: python-babel
 Requires: python-iso8601 >= 0.1.4
 Requires: python-netaddr
-Requires: python-oslo-config >= 2:1.4.0
-Requires: python-oslo-serialization
-Requires: python-oslo-utils
+Requires: python-oslo-config >= 2:1.9.0
+Requires: python-oslo-i18n >= 1.3.0
+Requires: python-oslo-serialization >= 1.2.0
+Requires: python-oslo-utils >= 1.2.0
 Requires: python-prettytable
 Requires: python-requests >= 2.2.0
-Requires: python-six >= 1.7.0
-Requires: python-stevedore
+Requires: python-six >= 1.9.0
+Requires: python-stevedore >= 1.1.0
 Requires: python-pbr
 
 # other requirements
