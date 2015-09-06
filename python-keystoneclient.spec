@@ -3,7 +3,7 @@ Name:       python-keystoneclient
 # and restarted version numbering from 0.1.1
 # https://lists.launchpad.net/openstack/msg14248.html
 Epoch:      1
-Version:    1.6.0
+Version:    1.7.0
 Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
@@ -19,17 +19,18 @@ BuildRequires: python-pbr
 # from requirements.txt
 Requires: python-argparse
 Requires: python-babel
-Requires: python-iso8601 >= 0.1.4
+Requires: python-iso8601 >= 0.1.9
 Requires: python-netaddr
-Requires: python-oslo-config >= 2:1.11.0
+Requires: python-oslo-config >= 2:2.3.0
 Requires: python-oslo-i18n >= 1.5.0
 Requires: python-oslo-serialization >= 1.4.0
-Requires: python-oslo-utils >= 1.4.0
+Requires: python-oslo-utils >= 2.0.0
 Requires: python-prettytable
 Requires: python-requests >= 2.5.2
 Requires: python-six >= 1.9.0
-Requires: python-stevedore >= 1.3.0
+Requires: python-stevedore >= 1.5.0
 Requires: python-pbr
+Requires: python-debtcollector >= 0.3.0
 
 # other requirements
 Requires: python-setuptools
@@ -90,6 +91,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc LICENSE html
 
 %changelog
+* Sun Sep 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:1.7.0-1
+- Update to upstream 1.7.0
+
 * Fri Jul 24 2015 Parag Nemade <pnemade@redhat.com> 1:1.6.0-1
 - Update to upstream 1.6.0
 
