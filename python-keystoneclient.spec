@@ -3,7 +3,7 @@ Name:       python-keystoneclient
 # and restarted version numbering from 0.1.1
 # https://lists.launchpad.net/openstack/msg14248.html
 Epoch:      1
-Version:    1.7.0
+Version:    1.7.1
 Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
@@ -91,6 +91,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc LICENSE html
 
 %changelog
+* Fri Sep 11 2015 Alan Pevec <alan.pevec@redhat.com> 1:1.7.1-1
+- Update to upstream 1.7.1
+
 * Sun Sep 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:1.7.0-1
 - Update to upstream 1.7.0
 
