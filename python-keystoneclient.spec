@@ -17,7 +17,9 @@ BuildRequires: python-setuptools
 BuildRequires: python-pbr
 
 # from requirements.txt
+%if 0%{?rhel} && 0%{?rhel} <= 6
 Requires: python-argparse
+%endif
 Requires: python-babel
 Requires: python-iso8601 >= 0.1.9
 Requires: python-netaddr
