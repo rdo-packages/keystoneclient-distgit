@@ -70,7 +70,7 @@ Client library and command line utility for interacting with Openstack
 Identity API.
 
 %if 0%{?with_python3}
-%package -n python3-%{srcname}
+%package -n python3-keystoneclient
 Summary:    Client library for OpenStack Identity API
 # from requirements.txt
 Requires: python3-babel
@@ -93,7 +93,7 @@ Requires: python3-keyring
 # for s3_token middleware
 Requires: python3-webob
 
-%description -n python3-%{srcname}
+%description -n python3-keystoneclient
 Client library for interacting with Openstack Identity API.
 %endif # with_python3
 
@@ -169,7 +169,7 @@ rm -fr html/.doctrees html/.buildinfo
 %{_mandir}/man1/keystone.1*
 
 %if 0%{?with_python3}
-%files -n python3-%{srcname}
+%files -n python3-keystoneclient
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
 %doc README.rst
