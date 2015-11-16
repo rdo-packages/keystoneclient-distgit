@@ -7,8 +7,8 @@ Version:    1.7.2
 Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
-URL:        http://pypi.python.org/pypi/%{name}
-Source0:    http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
+URL:        https://pypi.python.org/pypi/%{name}
+Source0:    https://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
 BuildArch:  noarch
 
