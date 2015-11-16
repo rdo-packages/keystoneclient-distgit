@@ -4,6 +4,12 @@
 %global python2_version %(%{__python2} -c "import sys; sys.stdout.write(sys.version[:3])")
 %endif
 
+%if 0%{?fedora} || 0%{?rhel} >= 7
+%global _bashcompdir %{_datadir}/bash-completion/completions
+%else
+%global _bashcompdir %{_sysconfdir}/bash_completion.d
+%endif
+
 Name:       python-keystoneclient
 # Since folsom-2 OpenStack clients follow their own release plan
 # and restarted version numbering from 0.1.1
@@ -73,7 +79,7 @@ rm -f test-requirements.txt requirements.txt
 
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
-install -p -D -m 644 tools/keystone.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/keystone.bash_completion
+install -p -D -m 644 tools/keystone.bash_completion %{buildroot}%{_bashcompdir}/keystone
 
 # Delete tests
 rm -fr %{buildroot}%{python2_sitelib}/tests
@@ -92,7 +98,7 @@ rm -fr html/.doctrees html/.buildinfo
 %license LICENSE
 %doc README.rst
 %{_bindir}/keystone
-%{_sysconfdir}/bash_completion.d/keystone.bash_completion
+%{_bashcompdir}/keystone
 %{python2_sitelib}/*
 %{_mandir}/man1/keystone.1*
 
