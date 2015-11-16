@@ -82,7 +82,9 @@ install -p -D -m 644 man/keystone.1 %{buildroot}%{_mandir}/man1/keystone.1
 rm -fr html/.doctrees html/.buildinfo
 
 %files
-%doc LICENSE README.rst
+%{!?_licensedir:%global license %%doc}
+%license LICENSE
+%doc README.rst
 %{_bindir}/keystone
 %{_sysconfdir}/bash_completion.d/keystone.bash_completion
 %{python_sitelib}/keystoneclient
@@ -90,7 +92,7 @@ rm -fr html/.doctrees html/.buildinfo
 %{_mandir}/man1/keystone.1*
 
 %files doc
-%doc LICENSE html
+%doc html
 
 %changelog
 * Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:1.7.2-1
