@@ -20,7 +20,7 @@ Name:       python-keystoneclient
 # and restarted version numbering from 0.1.1
 # https://lists.launchpad.net/openstack/msg14248.html
 Epoch:      1
-Version:    1.7.2
+Version:    1.8.1
 Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
@@ -184,6 +184,12 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Sun Nov 15 2015 Carl George <carl.george@rackspace.com> 1:1.8.1-1
+- Update to upstream 1.8.1
+- Only require python-argparse on older RHEL
+- Include license with main package
+- Add py3 subpackage
+
 * Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:1.7.2-1
 - Update to upstream 1.7.2
 
