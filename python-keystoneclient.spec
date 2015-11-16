@@ -1,3 +1,9 @@
+%if 0%{?rhel} && 0%{?rhel} <= 6
+%global __python2 %{_bindir}/python2
+%global python2_sitelib %(%{__python2} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
+%global python2_version %(%{__python2} -c "import sys; sys.stdout.write(sys.version[:3])")
+%endif
+
 Name:       python-keystoneclient
 # Since folsom-2 OpenStack clients follow their own release plan
 # and restarted version numbering from 0.1.1
@@ -63,14 +69,14 @@ Identity API.
 rm -f test-requirements.txt requirements.txt
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 install -p -D -m 644 tools/keystone.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/keystone.bash_completion
 
 # Delete tests
-rm -fr %{buildroot}%{python_sitelib}/tests
+rm -fr %{buildroot}%{python2_sitelib}/tests
 
 # Build HTML docs and man page
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
@@ -87,8 +93,7 @@ rm -fr html/.doctrees html/.buildinfo
 %doc README.rst
 %{_bindir}/keystone
 %{_sysconfdir}/bash_completion.d/keystone.bash_completion
-%{python_sitelib}/keystoneclient
-%{python_sitelib}/*.egg-info
+%{python2_sitelib}/*
 %{_mandir}/man1/keystone.1*
 
 %files doc
