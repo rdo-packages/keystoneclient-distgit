@@ -188,6 +188,7 @@ rm -fr html/.doctrees html/.buildinfo
 
 %files doc
 %doc html
+%license LICENSE
 
 %changelog
 * Fri Apr 15 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1:2.3.1-2
