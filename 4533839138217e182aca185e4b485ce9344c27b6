@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_7274699c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "python3 subpackage was already present.",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_d247554a",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "since we have separate subpackage for tests, it would make sense to move them there.",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_b24ae153",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "unnecessary %package doc was doing the same",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_123e4db9",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "name prefix should be python2",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_3257d104",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "At first, do not make running test suites non-failing.\nIf it fails, then, it\u0027s needs a FIXME: comment",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_525cc525",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "Typo, it should be python2",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_f2405937",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-05-22T15:25:04Z",
+      "side": 1,
+      "message": "name should be python2",
+      "revId": "4533839138217e182aca185e4b485ce9344c27b6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
