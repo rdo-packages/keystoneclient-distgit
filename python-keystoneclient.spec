@@ -46,7 +46,7 @@ Requires: python-pbr >= 1.6
 Requires: python-debtcollector >= 1.2.0
 Requires: python-positional >= 1.0.1
 Requires: python-keystoneauth1 >= 2.7.0
-Requires: python-keyring
+Requires: python-keyring >= 5.5.1
 Requires: python-webob
 
 %description -n python2-keystoneclient
@@ -77,7 +77,7 @@ Requires: python3-pbr >= 1.6
 Requires: python3-debtcollector >= 1.2.0
 Requires: python3-positional >= 1.0.1
 Requires: python3-keystoneauth1 >= 2.7.0
-Requires: python3-keyring
+Requires: python3-keyring >= 5.5.1
 Requires: python3-webob
 
 %description -n python3-keystoneclient
@@ -91,7 +91,7 @@ Requires:  python2-keystoneclient = %{epoch}:%{version}-%{release}
 BuildRequires:  python-hacking
 BuildRequires:  python-coverage
 BuildRequires:  python-fixtures
-BuildRequires:  python-keyring
+BuildRequires:  python-keyring >= 5.5.1
 BuildRequires:  python-lxml
 BuildRequires:  python-mock
 BuildRequires:  python-oauthlib
@@ -132,7 +132,7 @@ Requires:  python3-keystoneclient = %{epoch}:%{version}-%{release}
 BuildRequires:  python3-hacking
 BuildRequires:  python3-coverage
 BuildRequires:  python3-fixtures
-BuildRequires:  python3-keyring
+BuildRequires:  python3-keyring >= 5.5.1
 BuildRequires:  python3-lxml
 BuildRequires:  python3-mock
 BuildRequires:  python3-oauthlib
