@@ -239,3 +239,4 @@ rm -fr .testrepository
 %endif
 
 %changelog
+# REMOVEME: error caused by commit 
