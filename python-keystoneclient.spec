@@ -7,8 +7,8 @@
 
 Name:       python-keystoneclient
 Epoch:      1
-Version:    XXX
-Release:    XXX
+Version:    3.3.0
+Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
 URL:        https://launchpad.net/python-keystoneclient
@@ -239,3 +239,5 @@ rm -fr .testrepository
 %endif
 
 %changelog
+* Tue Aug 2 2016 Fabien Boucher <fboucher@redhat.com> 1:3.3.0-1
+- Update to 3.3.0
