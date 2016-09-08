@@ -34,18 +34,18 @@ BuildRequires: python-pbr >= 1.6
 Requires: python-babel
 Requires: python-iso8601 >= 0.1.9
 Requires: python-netaddr
-Requires: python-oslo-config >= 2:3.12.0
+Requires: python-oslo-config >= 2:3.14.0
 Requires: python-oslo-i18n >= 2.1.0
 Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.15.0
+Requires: python-oslo-utils >= 3.16.0
 Requires: python-prettytable
 Requires: python-requests >= 2.5.2
 Requires: python-six >= 1.9.0
-Requires: python-stevedore >= 1.10.0
+Requires: python-stevedore >= 1.16.0
 Requires: python-pbr >= 1.6
 Requires: python-debtcollector >= 1.2.0
 Requires: python-positional >= 1.0.1
-Requires: python-keystoneauth1 >= 2.7.0
+Requires: python-keystoneauth1 >= 2.10.0
 Requires: python-keyring >= 5.5.1
 Requires: python-webob
 
@@ -65,18 +65,18 @@ BuildRequires: python3-pbr >= 1.6
 Requires: python3-babel
 Requires: python3-iso8601 >= 0.1.9
 Requires: python3-netaddr
-Requires: python3-oslo-config >= 2:3.12.0
+Requires: python3-oslo-config >= 2:3.14.0
 Requires: python3-oslo-i18n >= 2.1.0
 Requires: python3-oslo-serialization >= 1.10.0
-Requires: python3-oslo-utils >= 3.15.0
+Requires: python3-oslo-utils >= 3.16.0
 Requires: python3-prettytable
 Requires: python3-requests >= 2.5.2
 Requires: python3-six >= 1.9.0
-Requires: python3-stevedore >= 1.10.0
+Requires: python3-stevedore >= 1.16.0
 Requires: python3-pbr >= 1.6
 Requires: python3-debtcollector >= 1.2.0
 Requires: python3-positional >= 1.0.1
-Requires: python3-keystoneauth1 >= 2.7.0
+Requires: python3-keystoneauth1 >= 2.10.0
 Requires: python3-keyring >= 5.5.1
 Requires: python3-webob
 
