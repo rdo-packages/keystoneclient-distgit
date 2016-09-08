@@ -7,8 +7,8 @@
 
 Name:       python-keystoneclient
 Epoch:      1
-Version:    XXX
-Release:    XXX
+Version:    3.5.0
+Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
 URL:        https://launchpad.net/python-keystoneclient
@@ -239,3 +239,6 @@ rm -fr .testrepository
 %endif
 
 %changelog
+* Fri Sep 09 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:3.5.0-1
+- Update to 3.5.0
+
