@@ -12,7 +12,7 @@ Release:    XXX
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
 URL:        https://launchpad.net/python-keystoneclient
-Source0:    http://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
+Source0:    https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
 
 BuildArch:  noarch
 
