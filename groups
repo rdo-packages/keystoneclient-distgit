@@ -1,6 +1,6 @@
 # UUID                                  	Group Name
 #
 0e4f281bbfaf464dc22e5311aaa223fd00e00ee0	openstack/keystoneclient-distgit-core
-f9165e8d823cca281f07fad26a6b9f72bfb9a1b4	openstack/keystoneclient-distgit-ptl
 63673ea7f2ae6a5666566b1ea9f14e473d00f5a9	rdo-core
+f9165e8d823cca281f07fad26a6b9f72bfb9a1b4	openstack/keystoneclient-distgit-ptl
 global:Registered-Users                 	Registered Users
