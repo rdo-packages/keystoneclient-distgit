@@ -22,8 +22,8 @@ Name:       python-keystoneclient
 # and restarted version numbering from 0.1.1
 # https://lists.launchpad.net/openstack/msg14248.html
 Epoch:      1
-Version:    2.3.1
-Release:    2%{?dist}
+Version:    2.3.2
+Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
 URL:        https://pypi.python.org/pypi/%{name}
@@ -191,6 +191,9 @@ rm -fr html/.doctrees html/.buildinfo
 %license LICENSE
 
 %changelog
+* Tue May 23 2017 Alfredo Moralejo <amoralej@redhat.com> 1:2.3.2-1
+- Update to 2.3.2
+
 * Fri Apr 15 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1:2.3.1-2
 - Fix sync errors
 - Refresh dependencies
