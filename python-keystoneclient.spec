@@ -30,6 +30,7 @@ Summary:    Client library for OpenStack Identity API
 BuildRequires: python2-devel
 BuildRequires: python-setuptools
 BuildRequires: python-pbr >= 1.6
+BuildRequires: git
 
 Requires: python-babel
 Requires: python-iso8601 >= 0.1.9
@@ -170,13 +171,13 @@ python3-keystoneclient test subpackages
 Summary: Documentation for OpenStack Keystone API client
 
 BuildRequires: python-sphinx
-BuildRequires: python-oslo-sphinx >= 2.3.0
+BuildRequires: python-openstackdocstheme
 
 %description doc
 Documentation for the keystoneclient module
 
 %prep
-%setup -q -n %{name}-%{upstream_version}
+%autosetup -n %{name}-%{upstream_version} -S git
 
 # Let RPM handle the dependencies
 rm -rf {test-,}requirements.txt
@@ -194,11 +195,9 @@ rm -rf {test-,}requirements.txt
 %endif
 
 # Build HTML docs
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source html
-
+%{__python2} setup.py build_sphinx -b html
 # Fix hidden-file-or-dir warnings
-rm -fr html/.doctrees html/.buildinfo
+rm -fr doc/build/html/.{doctrees,buildinfo}
 
 
 %check
@@ -225,7 +224,7 @@ rm -fr .testrepository
 %endif
 
 %files doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %files -n python2-keystoneclient-tests
