@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_cf5f5e71",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2017-07-06T02:14:24Z",
+      "side": 1,
+      "message": "Will fix it in next patchset, After RPMlint issue get resolved.\ndoc/build/html",
+      "range": {
+        "startLine": 200,
+        "startChar": 32,
+        "endLine": 200,
+        "endChar": 36
+      },
+      "revId": "9df3409db4850e96f31da191659a40f74af4f4a8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
