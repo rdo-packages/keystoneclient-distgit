@@ -239,3 +239,4 @@ rm -fr .testrepository
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-keystoneclient/commit/?id=36bdcf6b2df87d6c2e06f3c6bb3e8106eea3f7b8
