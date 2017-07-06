@@ -22,6 +22,30 @@
       "revId": "9df3409db4850e96f31da191659a40f74af4f4a8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa7fdbe_0f5b2655",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2017-07-06T08:58:58Z",
+      "side": 1,
+      "message": "fixing html --\u003e doc/build/html, didn\u0027t reported explicit-lib-dependency.",
+      "parentUuid": "9aa7fdbe_cf5f5e71",
+      "range": {
+        "startLine": 200,
+        "startChar": 32,
+        "endLine": 200,
+        "endChar": 36
+      },
+      "revId": "9df3409db4850e96f31da191659a40f74af4f4a8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
