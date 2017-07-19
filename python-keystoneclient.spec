@@ -89,7 +89,6 @@ Summary:  python2-keystoneclient test subpackage
 Requires:  python2-keystoneclient = %{epoch}:%{version}-%{release}
 
 BuildRequires:  python-hacking
-BuildRequires:  python-coverage
 BuildRequires:  python-fixtures
 BuildRequires:  python-keyring >= 5.5.1
 BuildRequires:  python-lxml
@@ -108,7 +107,6 @@ BuildRequires:  python-oslo-serialization
 BuildRequires:  python-oslo-i18n
 
 Requires:  python-hacking
-Requires:  python-coverage
 Requires:  python-fixtures
 Requires:  python-lxml
 Requires:  python-mock
