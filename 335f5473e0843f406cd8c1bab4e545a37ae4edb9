@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a8c0949_034b1cb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2017-08-01T14:44:42Z",
+      "side": 1,
+      "message": "Should follow standard git comments\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nshort one line description\n\nmore descriptive details for commit\nreference to trackers\n\nChange-Id: XXXXX\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nhttps://chris.beams.io/posts/git-commit/",
+      "revId": "335f5473e0843f406cd8c1bab4e545a37ae4edb9",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
