@@ -165,6 +165,11 @@ Documentation for the keystoneclient module
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
 
+# disable warning-is-error, this project has intersphinx in docs
+# so some warnings are generated in network isolated build environment
+# as koji
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 # Let RPM handle the dependencies
 rm -rf {test-,}requirements.txt
 
