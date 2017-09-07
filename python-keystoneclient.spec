@@ -4,6 +4,9 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+Client library and command line utility for interacting with Openstack \
+Identity API.
 
 Name:       python-keystoneclient
 Epoch:      1
@@ -20,8 +23,7 @@ BuildRequires: /usr/bin/openssl
 
 
 %description
-Client library and command line utility for interacting with Openstack
-Identity API.
+%{common_desc}
 
 %package -n python2-keystoneclient
 Summary:    Client library for OpenStack Identity API
@@ -46,8 +48,7 @@ Requires: python-keystoneauth1 >= 3.1.0
 Requires: python-keyring >= 5.5.1
 
 %description -n python2-keystoneclient
-Client library and command line utility for interacting with Openstack
-Identity API.
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-keystoneclient
