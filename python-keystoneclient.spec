@@ -158,6 +158,7 @@ Summary: Documentation for OpenStack Keystone API client
 
 BuildRequires: python-sphinx
 BuildRequires: python-openstackdocstheme
+BuildRequires: openstack-macros
 
 %description doc
 Documentation for the keystoneclient module
@@ -171,7 +172,7 @@ Documentation for the keystoneclient module
 sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 
 # Let RPM handle the dependencies
-rm -rf {test-,}requirements.txt
+%py_req_cleanup
 
 %build
 %py2_build
