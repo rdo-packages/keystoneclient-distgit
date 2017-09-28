@@ -4,6 +4,8 @@
 %global with_python3 1
 %endif
 
+%global with_doc 1
+
 %global common_desc \
 Client library and command line utility for interacting with Openstack \
 Identity API.
@@ -154,6 +156,7 @@ Requires:  python3-testtools
 python3-keystoneclient test subpackages
 %endif
 
+%if 0%{?with_doc}
 %package doc
 Summary: Documentation for OpenStack Keystone API client
 
@@ -162,6 +165,7 @@ BuildRequires: python-openstackdocstheme
 
 %description doc
 Documentation for the keystoneclient module
+%endif
 
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
@@ -187,10 +191,11 @@ rm -rf {test-,}requirements.txt
 %endif
 
 # Build HTML docs
+%if 0%{?with_doc}
 %{__python2} setup.py build_sphinx -b html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
-
+%endif
 
 %check
 %{__python2} setup.py test
@@ -215,9 +220,11 @@ rm -fr .testrepository
 %exclude %{python3_sitelib}/keystoneclient/tests
 %endif
 
+%if 0%{?with_doc}
 %files doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %files -n python2-keystoneclient-tests
 %license LICENSE
