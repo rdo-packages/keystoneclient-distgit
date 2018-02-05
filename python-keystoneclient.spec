@@ -30,22 +30,21 @@ Summary:    Client library for OpenStack Identity API
 %{?python_provide:%python_provide python2-keystoneclient}
 
 BuildRequires: python2-devel
-BuildRequires: python-setuptools
-BuildRequires: python-pbr >= 2.0.0
+BuildRequires: python2-setuptools
+BuildRequires: python2-pbr >= 2.0.0
 BuildRequires: git
 
-Requires: python-oslo-config >= 2:4.0.0
-Requires: python-oslo-i18n >= 2.1.0
-Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.20.0
-Requires: python-requests >= 2.10.0
-Requires: python-six >= 1.9.0
-Requires: python-stevedore >= 1.20.0
-Requires: python-pbr >= 2.0.0
-Requires: python-debtcollector >= 1.2.0
-Requires: python-positional >= 1.1.1
-Requires: python-keystoneauth1 >= 3.1.0
-Requires: python-keyring >= 5.5.1
+Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-i18n >= 3.15.3
+Requires: python2-oslo-serialization >= 2.18.0
+Requires: python2-oslo-utils >= 3.33.0
+Requires: python2-requests >= 2.14.2
+Requires: python2-six >= 1.10.0
+Requires: python2-stevedore >= 1.20.0
+Requires: python2-pbr >= 2.0.0
+Requires: python2-debtcollector >= 1.2.0
+Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-keyring >= 5.5.1
 
 %description -n python2-keystoneclient
 %{common_desc}
@@ -59,17 +58,16 @@ BuildRequires: python3-devel
 BuildRequires: python3-setuptools
 BuildRequires: python3-pbr >= 2.0.0
 
-Requires: python3-oslo-config >= 2:4.0.0
-Requires: python3-oslo-i18n >= 2.1.0
-Requires: python3-oslo-serialization >= 1.10.0
-Requires: python3-oslo-utils >= 3.20.0
-Requires: python3-requests >= 2.10.0
-Requires: python3-six >= 1.9.0
+Requires: python3-oslo-config >= 2:5.1.0
+Requires: python3-oslo-i18n >= 3.15.3
+Requires: python3-oslo-serialization >= 2.18.0
+Requires: python3-oslo-utils >= 3.33.0
+Requires: python3-requests >= 2.14.2
+Requires: python3-six >= 1.10.0
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-pbr >= 2.0.0
 Requires: python3-debtcollector >= 1.2.0
-Requires: python3-positional >= 1.1.1
-Requires: python3-keystoneauth1 >= 3.1.0
+Requires: python3-keystoneauth1 >= 3.3.0
 Requires: python3-keyring >= 5.5.1
 
 %description -n python3-keystoneclient
@@ -80,35 +78,51 @@ Client library for interacting with Openstack Identity API.
 Summary:  python2-keystoneclient test subpackage
 Requires:  python2-keystoneclient = %{epoch}:%{version}-%{release}
 
-BuildRequires:  python-hacking
-BuildRequires:  python-fixtures
-BuildRequires:  python-keyring >= 5.5.1
+BuildRequires:  python2-hacking
+BuildRequires:  python2-fixtures
+BuildRequires:  python2-keyring >= 5.5.1
+BuildRequires:  python2-mock
+BuildRequires:  python2-oauthlib
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testtools
+BuildRequires:  python2-keystoneauth1
+BuildRequires:  python2-oslo-config
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-oslo-serialization
+BuildRequires:  python2-oslo-i18n
+%if 0%{?fedora} > 0
+BuildRequires:  python2-lxml
+BuildRequires:  python2-requests-mock
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testresources
+BuildRequires:  python2-testscenarios
+%else
 BuildRequires:  python-lxml
-BuildRequires:  python-mock
-BuildRequires:  python-oauthlib
-BuildRequires:  python-oslotest
 BuildRequires:  python-requests-mock
 BuildRequires:  python-testrepository
 BuildRequires:  python-testresources
 BuildRequires:  python-testscenarios
-BuildRequires:  python-testtools
-BuildRequires:  python-keystoneauth1
-BuildRequires:  python-oslo-config
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-oslo-serialization
-BuildRequires:  python-oslo-i18n
+%endif
 
-Requires:  python-hacking
-Requires:  python-fixtures
+Requires:  python2-hacking
+Requires:  python2-fixtures
+Requires:  python2-mock
+Requires:  python2-oauthlib
+Requires:  python2-oslotest
+Requires:  python2-testtools
+%if 0%{?fedora} > 0
+Requires:  python2-lxml
+Requires:  python2-requests-mock
+Requires:  python2-testrepository
+Requires:  python2-testresources
+Requires:  python2-testscenarios
+%else
 Requires:  python-lxml
-Requires:  python-mock
-Requires:  python-oauthlib
-Requires:  python-oslotest
 Requires:  python-requests-mock
 Requires:  python-testrepository
 Requires:  python-testresources
 Requires:  python-testscenarios
-Requires:  python-testtools
+%endif
 
 
 %description -n python2-keystoneclient-tests
@@ -157,8 +171,8 @@ python3-keystoneclient test subpackages
 %package doc
 Summary: Documentation for OpenStack Keystone API client
 
-BuildRequires: python-sphinx
-BuildRequires: python-openstackdocstheme
+BuildRequires: python2-sphinx
+BuildRequires: python2-openstackdocstheme
 
 %description doc
 Documentation for the keystoneclient module
