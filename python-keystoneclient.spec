@@ -34,7 +34,7 @@ BuildRequires: python2-setuptools
 BuildRequires: python2-pbr >= 2.0.0
 BuildRequires: git
 
-Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-config >= 2:5.2.0
 Requires: python2-oslo-i18n >= 3.15.3
 Requires: python2-oslo-serialization >= 2.18.0
 Requires: python2-oslo-utils >= 3.33.0
@@ -43,7 +43,7 @@ Requires: python2-six >= 1.10.0
 Requires: python2-stevedore >= 1.20.0
 Requires: python2-pbr >= 2.0.0
 Requires: python2-debtcollector >= 1.2.0
-Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-keystoneauth1 >= 3.4.0
 %if 0%{?fedora} > 0
 Requires: python2-keyring >= 5.5.1
 %else
@@ -62,7 +62,7 @@ BuildRequires: python3-devel
 BuildRequires: python3-setuptools
 BuildRequires: python3-pbr >= 2.0.0
 
-Requires: python3-oslo-config >= 2:5.1.0
+Requires: python3-oslo-config >= 2:5.2.0
 Requires: python3-oslo-i18n >= 3.15.3
 Requires: python3-oslo-serialization >= 2.18.0
 Requires: python3-oslo-utils >= 3.33.0
@@ -71,7 +71,7 @@ Requires: python3-six >= 1.10.0
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-pbr >= 2.0.0
 Requires: python3-debtcollector >= 1.2.0
-Requires: python3-keystoneauth1 >= 3.3.0
+Requires: python3-keystoneauth1 >= 3.4.0
 Requires: python3-keyring >= 5.5.1
 
 %description -n python3-keystoneclient
@@ -206,10 +206,10 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 
 
 %check
-%{__python2} setup.py test
+export OS_TEST_PATH='./keystoneclient/tests/unit' %{__python2} setup.py test
 rm -fr .testrepository
 %if 0%{?with_python3}
-%{__python3} setup.py test
+export OS_TEST_PATH='./keystoneclient/tests/unit' %{__python3} setup.py test
 %endif
 
 %files -n python2-keystoneclient
