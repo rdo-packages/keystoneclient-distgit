@@ -34,7 +34,7 @@ BuildRequires: python2-setuptools
 BuildRequires: python2-pbr >= 2.0.0
 BuildRequires: git
 
-Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-config >= 2:5.2.0
 Requires: python2-oslo-i18n >= 3.15.3
 Requires: python2-oslo-serialization >= 2.18.0
 Requires: python2-oslo-utils >= 3.33.0
@@ -43,7 +43,7 @@ Requires: python2-six >= 1.10.0
 Requires: python2-stevedore >= 1.20.0
 Requires: python2-pbr >= 2.0.0
 Requires: python2-debtcollector >= 1.2.0
-Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-keystoneauth1 >= 3.4.0
 %if 0%{?fedora} > 0
 Requires: python2-keyring >= 5.5.1
 %else
@@ -62,7 +62,7 @@ BuildRequires: python3-devel
 BuildRequires: python3-setuptools
 BuildRequires: python3-pbr >= 2.0.0
 
-Requires: python3-oslo-config >= 2:5.1.0
+Requires: python3-oslo-config >= 2:5.2.0
 Requires: python3-oslo-i18n >= 3.15.3
 Requires: python3-oslo-serialization >= 2.18.0
 Requires: python3-oslo-utils >= 3.33.0
@@ -71,7 +71,7 @@ Requires: python3-six >= 1.10.0
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-pbr >= 2.0.0
 Requires: python3-debtcollector >= 1.2.0
-Requires: python3-keystoneauth1 >= 3.3.0
+Requires: python3-keystoneauth1 >= 3.4.0
 Requires: python3-keyring >= 5.5.1
 
 %description -n python3-keystoneclient
@@ -93,7 +93,7 @@ BuildRequires:  python2-oslo-config
 BuildRequires:  python2-oslo-utils
 BuildRequires:  python2-oslo-serialization
 BuildRequires:  python2-oslo-i18n
-BuildRequires:  python2-testrepository
+BuildRequires:  python2-stestr
 BuildRequires:  python2-testresources
 BuildRequires:  python2-testscenarios
 %if 0%{?fedora} > 0
@@ -111,8 +111,8 @@ Requires:  python2-fixtures
 Requires:  python2-mock
 Requires:  python2-oauthlib
 Requires:  python2-oslotest
+Requires:  python2-stestr
 Requires:  python2-testtools
-Requires:  python2-testrepository
 Requires:  python2-testresources
 Requires:  python2-testscenarios
 %if 0%{?fedora} > 0
@@ -140,7 +140,6 @@ BuildRequires:  python3-mock
 BuildRequires:  python3-oauthlib
 BuildRequires:  python3-oslotest
 BuildRequires:  python3-requests-mock
-BuildRequires:  python3-testrepository
 BuildRequires:  python3-testresources
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
@@ -149,6 +148,7 @@ BuildRequires:  python3-oslo-config
 BuildRequires:  python3-oslo-utils
 BuildRequires:  python3-oslo-serialization
 BuildRequires:  python3-oslo-i18n
+BuildRequires:  python3-stestr
 
 Requires:  python3-hacking
 Requires:  python3-fixtures
@@ -157,7 +157,7 @@ Requires:  python3-mock
 Requires:  python3-oauthlib
 Requires:  python3-oslotest
 Requires:  python3-requests-mock
-Requires:  python3-testrepository
+Requires:  python3-stestr
 Requires:  python3-testresources
 Requires:  python3-testscenarios
 Requires:  python3-testtools
@@ -206,10 +206,9 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 
 
 %check
-%{__python2} setup.py test
-rm -fr .testrepository
+OS_TEST_PATH=./keystoneclient/tests/unit stestr run
 %if 0%{?with_python3}
-%{__python3} setup.py test
+OS_TEST_PATH=./keystoneclient/tests/unit stestr-3 run
 %endif
 
 %files -n python2-keystoneclient
