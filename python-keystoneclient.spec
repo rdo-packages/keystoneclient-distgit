@@ -206,9 +206,9 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 
 
 %check
-OS_TEST_PATH=./keystoneclient/tests/unit stestr run
+stestr --test-path =./keystoneclient/tests/unit run
 %if 0%{?with_python3}
-OS_TEST_PATH=./keystoneclient/tests/unit stestr-3 run
+stestr-3 --test-path =./keystoneclient/tests/unit run
 %endif
 
 %files -n python2-keystoneclient
