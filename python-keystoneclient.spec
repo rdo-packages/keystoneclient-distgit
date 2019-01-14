@@ -1,12 +1,14 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} > 7
 %global with_python3 1
 %endif
 
 %global common_desc \
 Client library and command line utility for interacting with Openstack \
 Identity API.
+
+%global with_doc 1
 
 Name:       python-keystoneclient
 Epoch:      1
@@ -44,7 +46,7 @@ Requires: python2-stevedore >= 1.20.0
 Requires: python2-pbr >= 2.0.0
 Requires: python2-debtcollector >= 1.2.0
 Requires: python2-keystoneauth1 >= 3.4.0
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 Requires: python2-keyring >= 5.5.1
 %else
 Requires: python-keyring >= 5.5.1
@@ -96,7 +98,7 @@ BuildRequires:  python2-oslo-i18n
 BuildRequires:  python2-stestr
 BuildRequires:  python2-testresources
 BuildRequires:  python2-testscenarios
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  python2-keyring >= 5.5.1
 BuildRequires:  python2-lxml
 BuildRequires:  python2-requests-mock
@@ -115,7 +117,7 @@ Requires:  python2-stestr
 Requires:  python2-testtools
 Requires:  python2-testresources
 Requires:  python2-testscenarios
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 Requires:  python2-lxml
 Requires:  python2-requests-mock
 %else
@@ -167,6 +169,7 @@ Requires:  python3-testtools
 python3-keystoneclient test subpackages
 %endif
 
+%if 0%{?with_doc}
 %package doc
 Summary: Documentation for OpenStack Keystone API client
 
@@ -175,6 +178,7 @@ BuildRequires: python2-openstackdocstheme
 
 %description doc
 Documentation for the keystoneclient module
+%endif
 
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
@@ -199,11 +203,12 @@ rm -rf {test-,}requirements.txt
 %py3_install
 %endif
 
+%if 0%{?with_doc}
 # Build HTML docs
 %{__python2} setup.py build_sphinx -b html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
-
+%endif
 
 %check
 stestr --test-path=./keystoneclient/tests/unit run
@@ -227,9 +232,11 @@ stestr-3 --test-path=./keystoneclient/tests/unit run
 %exclude %{python3_sitelib}/keystoneclient/tests
 %endif
 
+%if 0%{?with_doc}
 %files doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %files -n python2-keystoneclient-tests
 %license LICENSE
