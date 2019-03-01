@@ -249,3 +249,4 @@ stestr-3 --test-path=./keystoneclient/tests/unit run
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-keystoneclient/commit/?id=7569849fbd8bbb42bba9c8da27729cb959f4e5e8
