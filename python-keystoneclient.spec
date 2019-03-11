@@ -12,8 +12,8 @@ Identity API.
 
 Name:       python-keystoneclient
 Epoch:      1
-Version:    XXX
-Release:    XXX
+Version:    3.19.0
+Release:    1%{?dist}
 Summary:    Client library for OpenStack Identity API
 License:    ASL 2.0
 URL:        https://launchpad.net/python-keystoneclient
@@ -249,3 +249,6 @@ stestr-3 --test-path=./keystoneclient/tests/unit run
 %endif
 
 %changelog
+* Mon Mar 11 2019 RDO <dev@lists.rdoproject.org> 1:3.19.0-1
+- Update to 3.19.0
+
