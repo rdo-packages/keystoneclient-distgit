@@ -211,9 +211,9 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %check
-stestr --test-path=./keystoneclient/tests/unit run
+PYTHON=python2 stestr --test-path=./keystoneclient/tests/unit run
 %if 0%{?with_python3}
-stestr-3 --test-path=./keystoneclient/tests/unit run
+PYTHON=python3 stestr-3 --test-path=./keystoneclient/tests/unit run
 %endif
 
 %files -n python2-keystoneclient
