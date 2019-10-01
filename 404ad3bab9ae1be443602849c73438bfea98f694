@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0348d0fa_64abedd7",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-10-01T15:17:27Z",
+      "side": 1,
+      "message": "nitpick, when subpackage name is only adding some -suffix to srpm name you can do %package \u003csuffix\u003e instead of using -n.\n\nAnyway, not big issue.",
+      "range": {
+        "startLine": 120,
+        "startChar": 9,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "404ad3bab9ae1be443602849c73438bfea98f694",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
