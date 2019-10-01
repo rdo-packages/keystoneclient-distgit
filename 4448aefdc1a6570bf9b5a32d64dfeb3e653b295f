@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0087fa04_c3237b38",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-10-01T10:54:37Z",
+      "side": 1,
+      "message": "extra %{pyver}",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 30
+      },
+      "revId": "4448aefdc1a6570bf9b5a32d64dfeb3e653b295f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
