@@ -146,7 +146,7 @@ rm -rf {test-,}requirements.txt
 
 %if 0%{?with_doc}
 # Build HTML docs
-%{pyver_bin} setup.py build_sphinx -b html
+sphinx-build-%{pyver} -W -b html doc/source doc/build/html
 # Fix hidden-file-or-dir warnings
 rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
