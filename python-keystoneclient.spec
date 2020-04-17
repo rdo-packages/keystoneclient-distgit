@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global common_desc \
@@ -35,93 +24,76 @@ BuildRequires: /usr/bin/openssl
 %description
 %{common_desc}
 
-%package -n python%{pyver}-%{sname}
+%package -n python3-%{sname}
 Summary:    Client library for OpenStack Identity API
-%{?python_provide:%python_provide python%{pyver}-%{sname}}
-%if %{pyver} == 3
+%{?python_provide:%python_provide python3-%{sname}}
 Obsoletes: python2-%{sname} < %{version}-%{release}
-%endif
 
-BuildRequires: python%{pyver}-devel
-BuildRequires: python%{pyver}-setuptools
-BuildRequires: python%{pyver}-pbr >= 2.0.0
+BuildRequires: python3-devel
+BuildRequires: python3-setuptools
+BuildRequires: python3-pbr >= 2.0.0
 BuildRequires: git
 
-Requires: python%{pyver}-oslo-config >= 2:5.2.0
-Requires: python%{pyver}-oslo-i18n >= 3.15.3
-Requires: python%{pyver}-oslo-serialization >= 2.18.0
-Requires: python%{pyver}-oslo-utils >= 3.33.0
-Requires: python%{pyver}-requests >= 2.14.2
-Requires: python%{pyver}-six >= 1.10.0
-Requires: python%{pyver}-stevedore >= 1.20.0
-Requires: python%{pyver}-pbr >= 2.0.0
-Requires: python%{pyver}-debtcollector >= 1.2.0
-Requires: python%{pyver}-keystoneauth1 >= 3.4.0
-# Handle python2 exception
-%if %{pyver} == 2
-Requires: python-keyring >= 5.5.1
-%else
-Requires: python%{pyver}-keyring >= 5.5.1
-%endif
+Requires: python3-oslo-config >= 2:5.2.0
+Requires: python3-oslo-i18n >= 3.15.3
+Requires: python3-oslo-serialization >= 2.18.0
+Requires: python3-oslo-utils >= 3.33.0
+Requires: python3-requests >= 2.14.2
+Requires: python3-six >= 1.10.0
+Requires: python3-stevedore >= 1.20.0
+Requires: python3-pbr >= 2.0.0
+Requires: python3-debtcollector >= 1.2.0
+Requires: python3-keystoneauth1 >= 3.4.0
+Requires: python3-keyring >= 5.5.1
 
-%description -n python%{pyver}-%{sname}
+%description -n python3-%{sname}
 %{common_desc}
 
-%package -n python%{pyver}-%{sname}-tests
+%package -n python3-%{sname}-tests
 Summary:  Python API and CLI for OpenStack Keystone (tests)
-%{?python_provide:%python_provide python%{pyver}-%{sname}-tests}
-Requires:  python%{pyver}-%{sname} = %{epoch}:%{version}-%{release}
+%{?python_provide:%python_provide python3-%{sname}-tests}
+Requires:  python3-%{sname} = %{epoch}:%{version}-%{release}
 
-BuildRequires:  python%{pyver}-hacking
-BuildRequires:  python%{pyver}-fixtures
-BuildRequires:  python%{pyver}-mock
-BuildRequires:  python%{pyver}-oauthlib
-BuildRequires:  python%{pyver}-oslotest
-BuildRequires:  python%{pyver}-testtools
-BuildRequires:  python%{pyver}-keystoneauth1
-BuildRequires:  python%{pyver}-oslo-config
-BuildRequires:  python%{pyver}-oslo-utils
-BuildRequires:  python%{pyver}-oslo-serialization
-BuildRequires:  python%{pyver}-oslo-i18n
-BuildRequires:  python%{pyver}-stestr
-BuildRequires:  python%{pyver}-testresources
-BuildRequires:  python%{pyver}-testscenarios
-BuildRequires:  python%{pyver}-requests-mock
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:  python-keyring >= 5.5.1
-BuildRequires:  python-lxml
-%else
-BuildRequires:  python%{pyver}-keyring >= 5.5.1
-BuildRequires:  python%{pyver}-lxml
-%endif
+BuildRequires:  python3-hacking
+BuildRequires:  python3-fixtures
+BuildRequires:  python3-mock
+BuildRequires:  python3-oauthlib
+BuildRequires:  python3-oslotest
+BuildRequires:  python3-testtools
+BuildRequires:  python3-keystoneauth1
+BuildRequires:  python3-oslo-config
+BuildRequires:  python3-oslo-utils
+BuildRequires:  python3-oslo-serialization
+BuildRequires:  python3-oslo-i18n
+BuildRequires:  python3-stestr
+BuildRequires:  python3-testresources
+BuildRequires:  python3-testscenarios
+BuildRequires:  python3-requests-mock
+BuildRequires:  python3-keyring >= 5.5.1
+BuildRequires:  python3-lxml
 
-Requires:  python%{pyver}-hacking
-Requires:  python%{pyver}-fixtures
-Requires:  python%{pyver}-mock
-Requires:  python%{pyver}-oauthlib
-Requires:  python%{pyver}-oslotest
-Requires:  python%{pyver}-stestr
-Requires:  python%{pyver}-testtools
-Requires:  python%{pyver}-testresources
-Requires:  python%{pyver}-testscenarios
-Requires:  python%{pyver}-requests-mock
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:  python-lxml
-%else
-Requires:  python%{pyver}-lxml
-%endif
+Requires:  python3-hacking
+Requires:  python3-fixtures
+Requires:  python3-mock
+Requires:  python3-oauthlib
+Requires:  python3-oslotest
+Requires:  python3-stestr
+Requires:  python3-testtools
+Requires:  python3-testresources
+Requires:  python3-testscenarios
+Requires:  python3-requests-mock
+Requires:  python3-lxml
 
-%description -n python%{pyver}-%{sname}-tests
+%description -n python3-%{sname}-tests
 {common_desc}
 
 %if 0%{?with_doc}
 %package -n python-%{sname}-doc
 Summary: Documentation for OpenStack Keystone API client
 
-BuildRequires: python%{pyver}-sphinx
-BuildRequires: python%{pyver}-openstackdocstheme
+BuildRequires: python3-sphinx
+BuildRequires: python3-sphinxcontrib-apidoc
+BuildRequires: python3-openstackdocstheme
 
 %description -n python-%{sname}-doc
 {common_desc}
@@ -139,16 +111,16 @@ sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 rm -rf {test-,}requirements.txt
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %install
-%{pyver_install}
+%{py3_install}
 
 %if 0%{?with_doc}
 # Build HTML docs
 # Disable warning-is-error as intersphinx extension tries
 # to access external network and fails.
-sphinx-build-%{pyver} -b html doc/source doc/build/html
+sphinx-build-3 -b html doc/source doc/build/html
 # Drop intersphinx downloaded file objects.inv to avoid rpmlint warning
 rm -fr doc/build/html/objects.inv
 # Fix hidden-file-or-dir warnings
@@ -156,14 +128,14 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %check
-PYTHON=python%{pyver} stestr-%{pyver} --test-path=./keystoneclient/tests/unit run
+PYTHON=%{__python3} stestr-3 --test-path=./keystoneclient/tests/unit run
 
-%files -n python%{pyver}-%{sname}
+%files -n python3-%{sname}
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/%{sname}
-%{pyver_sitelib}/*.egg-info
-%exclude %{pyver_sitelib}/%{sname}/tests
+%{python3_sitelib}/%{sname}
+%{python3_sitelib}/*.egg-info
+%exclude %{python3_sitelib}/%{sname}/tests
 
 %if 0%{?with_doc}
 %files -n python-%{sname}-doc
@@ -171,8 +143,8 @@ PYTHON=python%{pyver} stestr-%{pyver} --test-path=./keystoneclient/tests/unit ru
 %license LICENSE
 %endif
 
-%files -n python%{pyver}-%{sname}-tests
+%files -n python3-%{sname}-tests
 %license LICENSE
-%{pyver_sitelib}/%{sname}/tests
+%{python3_sitelib}/%{sname}/tests
 
 %changelog
