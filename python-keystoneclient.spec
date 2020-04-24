@@ -150,4 +150,3 @@ PYTHON=%{__python3} stestr --test-path=./keystoneclient/tests/unit run
 %changelog
 * Fri Apr 24 2020 RDO <dev@lists.rdoproject.org> 1:4.0.0-1
 - Update to 4.0.0
-
