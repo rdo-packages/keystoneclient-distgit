@@ -145,7 +145,8 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %check
-PYTHON=%{__python3} stestr --test-path=./keystoneclient/tests/unit run
+# TODO(amoralej) disabling cms tests https://bugs.launchpad.net/python-keystoneclient/+bug/1963925
+PYTHON=%{__python3} stestr --test-path=./keystoneclient/tests/unit run -B '^.*test_cms.*'
 
 %files -n python3-%{sname}
 %license LICENSE
