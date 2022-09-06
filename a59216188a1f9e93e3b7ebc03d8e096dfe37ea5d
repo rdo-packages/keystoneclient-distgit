@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01690638_f238cd2d",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-06T13:53:24Z",
+      "side": 1,
+      "message": "only for python_version\u003c\u00273.8\u0027",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 45
+      },
+      "revId": "a59216188a1f9e93e3b7ebc03d8e096dfe37ea5d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b02f470c_c6a3782a",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-06T13:53:24Z",
+      "side": 1,
+      "message": "not needed during runtime",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 35
+      },
+      "revId": "a59216188a1f9e93e3b7ebc03d8e096dfe37ea5d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
