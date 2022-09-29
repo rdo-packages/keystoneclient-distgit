@@ -98,7 +98,7 @@ Requires:  python3-requests-mock
 Requires:  python3-lxml
 
 %description -n python3-%{sname}-tests
-{common_desc}
+%{common_desc}
 
 %if 0%{?with_doc}
 %package -n python-%{sname}-doc
@@ -109,7 +109,7 @@ BuildRequires: python3-sphinxcontrib-apidoc
 BuildRequires: python3-openstackdocstheme
 
 %description -n python-%{sname}-doc
-{common_desc}
+%{common_desc}
 %endif
 
 %prep
