@@ -58,6 +58,7 @@ Requires: python3-pbr >= 2.0.0
 Requires: python3-debtcollector >= 1.2.0
 Requires: python3-keystoneauth1 >= 3.4.0
 Requires: python3-keyring >= 5.5.1
+Requires: python3-packaging >= 20.4
 
 %description -n python3-%{sname}
 %{common_desc}
