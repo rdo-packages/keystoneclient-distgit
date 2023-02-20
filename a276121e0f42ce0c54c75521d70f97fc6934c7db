@@ -1,0 +1,8 @@
+Code-Review+2: Karolina Kula <kkula@redhat.com>
+Workflow+1: Karolina Kula <kkula@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 20 Feb 2023 09:11:51 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystoneclient-distgit/+/47105
+Project: openstack/keystoneclient-distgit
+Branch: refs/heads/rpm-master
