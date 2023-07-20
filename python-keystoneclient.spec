@@ -1,6 +1,12 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 
 %global common_desc \
 Client library and command line utility for interacting with Openstack \
@@ -14,7 +20,7 @@ Epoch:      1
 Version:    XXX
 Release:    XXX
 Summary:    Client library for OpenStack Identity API
-License:    ASL 2.0
+License:    Apache-2.0
 URL:        https://launchpad.net/python-keystoneclient
 Source0:    https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
 # Required for tarball sources verification
@@ -33,60 +39,23 @@ BuildRequires:  openstack-macros
 
 BuildRequires: /usr/bin/openssl
 
-
 %description
 %{common_desc}
 
 %package -n python3-%{sname}
 Summary:    Client library for OpenStack Identity API
-%{?python_provide:%python_provide python3-%{sname}}
-Obsoletes: python2-%{sname} < %{version}-%{release}
 
 BuildRequires: python3-devel
-BuildRequires: python3-setuptools
-BuildRequires: python3-pbr >= 2.0.0
+BuildRequires: pyproject-rpm-macros
 BuildRequires: git-core
-
-Requires: python3-oslo-config >= 2:5.2.0
-Requires: python3-oslo-i18n >= 3.15.3
-Requires: python3-oslo-serialization >= 2.18.0
-Requires: python3-oslo-utils >= 3.33.0
-Requires: python3-requests >= 2.14.2
-Requires: python3-six >= 1.10.0
-Requires: python3-stevedore >= 1.20.0
-Requires: python3-pbr >= 2.0.0
-Requires: python3-debtcollector >= 1.2.0
-Requires: python3-keystoneauth1 >= 3.4.0
-Requires: python3-keyring >= 5.5.1
-Requires: python3-packaging >= 20.4
 
 %description -n python3-%{sname}
 %{common_desc}
 
 %package -n python3-%{sname}-tests
 Summary:  Python API and CLI for OpenStack Keystone (tests)
-%{?python_provide:%python_provide python3-%{sname}-tests}
+
 Requires:  python3-%{sname} = %{epoch}:%{version}-%{release}
-
-BuildRequires:  python3-hacking
-BuildRequires:  python3-fixtures
-BuildRequires:  python3-mock
-BuildRequires:  python3-oauthlib
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-testtools
-BuildRequires:  python3-keystoneauth1
-BuildRequires:  python3-oslo-config
-BuildRequires:  python3-oslo-utils
-BuildRequires:  python3-oslo-serialization
-BuildRequires:  python3-oslo-i18n
-BuildRequires:  python3-stestr
-BuildRequires:  python3-testresources
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-requests-mock
-BuildRequires:  python3-keyring >= 5.5.1
-BuildRequires:  python3-lxml
-
-Requires:  python3-hacking
 Requires:  python3-fixtures
 Requires:  python3-mock
 Requires:  python3-oauthlib
@@ -105,10 +74,6 @@ Requires:  python3-lxml
 %package -n python-%{sname}-doc
 Summary: Documentation for OpenStack Keystone API client
 
-BuildRequires: python3-sphinx
-BuildRequires: python3-sphinxcontrib-apidoc
-BuildRequires: python3-openstackdocstheme
-
 %description -n python-%{sname}-doc
 %{common_desc}
 %endif
@@ -120,25 +85,39 @@ BuildRequires: python3-openstackdocstheme
 %endif
 %autosetup -n %{name}-%{upstream_version} -S git
 
-# disable warning-is-error, this project has intersphinx in docs
-# so some warnings are generated in network isolated build environment
-# as koji
-sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
 
-# Let RPM handle the dependencies
-rm -rf {test-,}requirements.txt
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-%{py3_build}
+%pyproject_wheel
 
 %install
-%{py3_install}
+%pyproject_install
 
 %if 0%{?with_doc}
 # Build HTML docs
 # Disable warning-is-error as intersphinx extension tries
 # to access external network and fails.
-sphinx-build -b html doc/source doc/build/html
+%tox -e docs
 # Drop intersphinx downloaded file objects.inv to avoid rpmlint warning
 rm -fr doc/build/html/objects.inv
 # Fix hidden-file-or-dir warnings
@@ -146,14 +125,13 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %check
-# TODO(amoralej) disabling cms tests https://bugs.launchpad.net/python-keystoneclient/+bug/1963925
-PYTHON=%{__python3} stestr --test-path=./keystoneclient/tests/unit run --exclude-regex '^.*test_cms.*'
+%tox -e %{default_toxenv}
 
 %files -n python3-%{sname}
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/%{sname}
-%{python3_sitelib}/*.egg-info
+%{python3_sitelib}/*.dist-info
 %exclude %{python3_sitelib}/%{sname}/tests
 
 %if 0%{?with_doc}
