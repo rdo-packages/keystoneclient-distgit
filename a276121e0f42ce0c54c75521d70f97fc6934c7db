@@ -22,6 +22,30 @@
       },
       "revId": "a276121e0f42ce0c54c75521d70f97fc6934c7db",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7fb17fa_b2ad867b",
+        "filename": "python-keystoneclient.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-07-20T12:28:13Z",
+      "side": 0,
+      "message": "yes, it was intentional, we are removing it as BR, not point in maintainint it as requries for -tests",
+      "parentUuid": "45d3c35a_5bcdfda9",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 26
+      },
+      "revId": "a276121e0f42ce0c54c75521d70f97fc6934c7db",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
