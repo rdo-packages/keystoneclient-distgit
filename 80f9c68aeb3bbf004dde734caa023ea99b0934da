@@ -1,0 +1,8 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 26 Sep 2023 07:28:43 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystoneclient-distgit/+/50181
+Project: openstack/keystoneclient-distgit
+Branch: refs/heads/bobcat-rdo
