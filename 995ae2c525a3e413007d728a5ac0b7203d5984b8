@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 14 Mar 2024 09:11:50 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/keystoneclient-distgit/+/52146
+Project: openstack/keystoneclient-distgit
+Branch: refs/heads/caracal-rdo
