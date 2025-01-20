@@ -60,7 +60,6 @@ Summary:  Python API and CLI for OpenStack Keystone (tests)
 
 Requires:  python3-%{sname} = %{epoch}:%{version}-%{release}
 Requires:  python3-fixtures
-Requires:  python3-mock
 Requires:  python3-oauthlib
 Requires:  python3-oslotest
 Requires:  python3-stestr
