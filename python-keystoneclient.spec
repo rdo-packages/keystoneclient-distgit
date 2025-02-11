@@ -48,9 +48,6 @@ Summary:    Client library for OpenStack Identity API
 BuildRequires: python3-devel
 BuildRequires: pyproject-rpm-macros
 BuildRequires: git-core
-# keyring is a optional dep but we are maintataining as default for backwards
-# compatibility
-Requires: python3-keyring >= 5.5.1
 
 %description -n python3-%{sname}
 %{common_desc}
