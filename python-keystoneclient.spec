@@ -1,6 +1,8 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%{?dlrn: %global tarsources python-keystoneclient}
+%{!?dlrn: %global tarsources python_keystoneclient}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8 tempest
 # Exclude sphinx from BRs if docs are disabled
@@ -82,7 +84,7 @@ Summary: Documentation for OpenStack Keystone API client
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%autosetup -n %{name}-%{upstream_version} -S git
+%autosetup -n %{tarsources}-%{upstream_version} -S git
 
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
