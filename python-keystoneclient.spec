@@ -149,3 +149,4 @@ rm -fr doc/build/html/.{doctrees,buildinfo}
 %{python3_sitelib}/%{sname}/tests
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/python-keystoneclient/commit/be6c5069399179bd749d8edfa90045120936585d
